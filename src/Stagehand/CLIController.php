@@ -167,7 +167,11 @@ abstract class Stagehand_CLIController
             array_shift($argv);
             $parsedOptions = Console_Getopt::getopt2($argv, $this->shortOptions, $this->longOptions);
         } catch (Stagehand_LegacyError_PEARError_Exception $e) {
+            Stagehand_LegacyError_PEARError::disableConversion();
             throw new $this->exceptionClass(preg_replace('/^Console_Getopt: /', '', $e->getMessage()));
+        } catch (Exception $e) {
+            Stagehand_LegacyError_PEARError::disableConversion();
+            throw $e;
         }
         Stagehand_LegacyError_PEARError::disableConversion();
 

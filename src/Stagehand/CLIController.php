@@ -36,7 +36,8 @@
  */
 
 require_once 'Console/Getopt.php';
-require_once 'PEAR.php';
+require_once 'Stagehand/LegacyError/PEARError.php';
+require_once 'Stagehand/LegacyError/PEARError/Exception.php';
 
 // {{{ Stagehand_CLIController
 
@@ -160,29 +161,15 @@ abstract class Stagehand_CLIController
      */
     private function parseOptions()
     {
-        $oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
-
-        PEAR::staticPushErrorHandling(PEAR_ERROR_RETURN);
-        $argv = Console_Getopt::readPHPArgv();
-        PEAR::staticPopErrorHandling();
-        if (PEAR::isError($argv)) {
-            error_reporting($oldErrorReportingLevel);
-            throw new $this->exceptionClass(preg_replace('/^Console_Getopt: /', '', $argv->getMessage()));
+        Stagehand_LegacyError_PEARError::enableConversion();
+        try {
+            $argv = Console_Getopt::readPHPArgv();
+            array_shift($argv);
+            $parsedOptions = Console_Getopt::getopt2($argv, $this->shortOptions, $this->longOptions);
+        } catch (Stagehand_LegacyError_PEARError_Exception $e) {
+            throw new $this->exceptionClass(preg_replace('/^Console_Getopt: /', '', $e->getMessage()));
         }
-
-        array_shift($argv);
-        PEAR::staticPushErrorHandling(PEAR_ERROR_RETURN);
-        $parsedOptions = Console_Getopt::getopt2($argv,
-                                                 $this->shortOptions,
-                                                 $this->longOptions
-                                                 );
-        PEAR::staticPopErrorHandling();
-        if (PEAR::isError($parsedOptions)) {
-            error_reporting($oldErrorReportingLevel);
-            throw new $this->exceptionClass(preg_replace('/^Console_Getopt: /', '', $parsedOptions->getMessage()));
-        }
-
-        error_reporting($oldErrorReportingLevel);
+        Stagehand_LegacyError_PEARError::disableConversion();
 
         return $parsedOptions;
     }

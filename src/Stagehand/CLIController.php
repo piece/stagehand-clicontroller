@@ -93,8 +93,8 @@ abstract class Stagehand_CLIController
         }
 
         try {
-            list($options, $args) = $this->_parseOptions();
-            $continues = $this->_configure($options, $args);
+            list($options, $args) = $this->parseOptions();
+            $continues = $this->configure($options, $args);
             if (!$continues) {
                 return 0;
             }
@@ -151,14 +151,14 @@ abstract class Stagehand_CLIController
      */
 
     // }}}
-    // {{{ _parseOptions()
+    // {{{ parseOptions()
 
     /**
      * Parses the command line options.
      *
      * @return array
      */
-    private function _parseOptions()
+    private function parseOptions()
     {
         $oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
 
@@ -188,7 +188,7 @@ abstract class Stagehand_CLIController
     }
 
     // }}}
-    // {{{ _configure()
+    // {{{ configure()
 
     /**
      * Configures the current process by the command line options and arguments.
@@ -197,7 +197,7 @@ abstract class Stagehand_CLIController
      * @param array $args
      * @return boolean
      */
-    private function _configure($options, $args)
+    private function configure($options, $args)
     {
         foreach ($options as $option) {
             $doContinue = $this->doConfigureByOption($option[0], @$option[1]);

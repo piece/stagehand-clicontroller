@@ -200,15 +200,15 @@ abstract class Stagehand_CLIController
     private function configure($options, $args)
     {
         foreach ($options as $option) {
-            $doContinue = $this->doConfigureByOption($option[0], @$option[1]);
-            if (!$doContinue) {
+            $continues = $this->doConfigureByOption($option[0], @$option[1]);
+            if (!$continues) {
                 return false;
             }
         }
 
         foreach ($args as $arg) {
-            $doContinue = $this->doConfigureByArg($arg);
-            if (!$doContinue) {
+            $continues = $this->doConfigureByArg($arg);
+            if (!$continues) {
                 return false;
             }
         }

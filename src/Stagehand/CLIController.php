@@ -94,7 +94,11 @@ abstract class Stagehand_CLIController
 
         try {
             list($options, $args) = $this->_parseOptions();
-            $this->_configure($options, $args);
+            $continues = $this->_configure($options, $args);
+            if (!$continues) {
+                return 0;
+            }
+
             $this->doRun();
         } catch (Exception $e) {
             if (!$e instanceof $this->exceptionClass) {
@@ -191,22 +195,25 @@ abstract class Stagehand_CLIController
      *
      * @param array $options
      * @param array $args
+     * @return boolean
      */
     private function _configure($options, $args)
     {
         foreach ($options as $option) {
             $doContinue = $this->doConfigureByOption($option[0], @$option[1]);
             if (!$doContinue) {
-                return;
+                return false;
             }
         }
 
         foreach ($args as $arg) {
             $doContinue = $this->doConfigureByArg($arg);
             if (!$doContinue) {
-                return;
+                return false;
             }
         }
+
+        return true;
     }
 
     /**#@-*/

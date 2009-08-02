@@ -188,7 +188,7 @@ abstract class Stagehand_CLIController
      * @param array $args
      * @return boolean
      */
-    private function configure($options, $args)
+    private function configure(array $options, array $args)
     {
         foreach ($options as $option) {
             $continues = $this->doConfigureByOption($option[0], @$option[1]);

@@ -88,7 +88,7 @@ abstract class Stagehand_CLIController
     public function run()
     {
         if (!array_key_exists('argv', $_SERVER)) {
-            echo "ERROR: either use the CLI php executable, or set register_argc_argv=On in php.ini.\n";;
+            echo "ERROR: either use the CLI php executable, or set register_argc_argv=On in php.ini\n";;
             return 1;
         }
 

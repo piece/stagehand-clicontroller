@@ -35,10 +35,6 @@
  * @since      File available since Release 0.1.0
  */
 
-require_once 'Console/Getopt.php';
-require_once 'Stagehand/LegacyError/PEARError.php';
-require_once 'Stagehand/LegacyError/PEARError/Exception.php';
-
 // {{{ Stagehand_CLIController
 
 /**

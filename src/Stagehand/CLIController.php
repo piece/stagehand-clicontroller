@@ -35,6 +35,8 @@
  * @since      File available since Release 0.1.0
  */
 
+require_once 'Console/Getopt.php';
+
 // {{{ Stagehand_CLIController
 
 /**

@@ -118,14 +118,14 @@ abstract class Stagehand_CLIController
      */
 
     // }}}
-    // {{{ doConfigureByOption()
+    // {{{ configureByOption()
 
     /**
      * @param string $option
      * @param string $value
      * @return boolean
      */
-    protected function doConfigureByOption($option, $value)
+    protected function configureByOption($option, $value)
     {
         return false;
     }
@@ -195,7 +195,7 @@ abstract class Stagehand_CLIController
     private function configure(array $options, array $args)
     {
         foreach ($options as $option) {
-            $continues = $this->doConfigureByOption($option[0], @$option[1]);
+            $continues = $this->configureByOption($option[0], @$option[1]);
             if (!$continues) {
                 return false;
             }

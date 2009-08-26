@@ -143,12 +143,6 @@ abstract class Stagehand_CLIController
      */
     abstract protected function doRun();
 
-    /**#@-*/
-
-    /**#@+
-     * @access private
-     */
-
     // }}}
     // {{{ parseOptions()
 
@@ -157,7 +151,7 @@ abstract class Stagehand_CLIController
      *
      * @return array
      */
-    private function parseOptions()
+    protected function parseOptions()
     {
         Stagehand_LegacyError_PEARError::enableConversion();
         try {
@@ -186,7 +180,7 @@ abstract class Stagehand_CLIController
      * @param array $args
      * @return boolean
      */
-    private function configure(array $options, array $args)
+    protected function configure(array $options, array $args)
     {
         foreach ($options as $option) {
             $continues = $this->configureByOption($option[0], @$option[1]);
@@ -204,6 +198,12 @@ abstract class Stagehand_CLIController
 
         return true;
     }
+
+    /**#@-*/
+
+    /**#@+
+     * @access private
+     */
 
     /**#@-*/
 

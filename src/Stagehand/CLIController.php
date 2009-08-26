@@ -137,7 +137,10 @@ abstract class Stagehand_CLIController
      * @param string $arg
      * @return boolean
      */
-    abstract protected function doConfigureByArg($arg);
+    protected function doConfigureByArg($arg)
+    {
+        return false;
+    }
 
     // }}}
     // {{{ doRun()

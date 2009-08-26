@@ -125,10 +125,7 @@ abstract class Stagehand_CLIController
      * @param string $value
      * @return boolean
      */
-    protected function configureByOption($option, $value)
-    {
-        return false;
-    }
+    abstract protected function configureByOption($option, $value);
 
     // }}}
     // {{{ configureByArg()

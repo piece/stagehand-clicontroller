@@ -131,13 +131,13 @@ abstract class Stagehand_CLIController
     }
 
     // }}}
-    // {{{ doConfigureByArg()
+    // {{{ configureByArg()
 
     /**
      * @param string $arg
      * @return boolean
      */
-    protected function doConfigureByArg($arg)
+    protected function configureByArg($arg)
     {
         return false;
     }
@@ -202,7 +202,7 @@ abstract class Stagehand_CLIController
         }
 
         foreach ($args as $arg) {
-            $continues = $this->doConfigureByArg($arg);
+            $continues = $this->configureByArg($arg);
             if (!$continues) {
                 return false;
             }

@@ -76,6 +76,7 @@ $package->setNotes($notes);
 $package->setPhpDep('5.0.0');
 $package->setPearinstallerDep('1.4.3');
 $package->addPackageDepWithChannel('required', 'Console_Getopt', 'pear.php.net', '1.2');
+$package->addPackageDepWithChannel('required', 'Stagehand_Autoload', 'pear.piece-framework.com', '0.3.0');
 $package->addMaintainer('lead', 'iteman', 'KUBO Atsuhiro', 'kubo@iteman.jp');
 $package->addGlobalReplacement('package-info', '@package_version@', 'version');
 $package->generateContents();

@@ -154,17 +154,21 @@ abstract class Stagehand_CLIController
     protected function parseOptions()
     {
         Stagehand_LegacyError_PEARError::enableConversion();
+        $oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
         try {
             $argv = Console_Getopt::readPHPArgv();
             array_shift($argv);
             $parsedOptions = Console_Getopt::getopt2($argv, $this->shortOptions, $this->longOptions);
         } catch (Stagehand_LegacyError_PEARError_Exception $e) {
+            error_reporting($oldErrorReportingLevel);
             Stagehand_LegacyError_PEARError::disableConversion();
             throw new $this->exceptionClass(preg_replace('/^Console_Getopt: /', '', $e->getMessage()));
         } catch (Exception $e) {
+            error_reporting($oldErrorReportingLevel);
             Stagehand_LegacyError_PEARError::disableConversion();
             throw $e;
         }
+        error_reporting($oldErrorReportingLevel);
         Stagehand_LegacyError_PEARError::disableConversion();
 
         return $parsedOptions;

@@ -40,11 +40,15 @@ require_once 'PEAR.php';
 
 PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, create_function('$error', 'var_dump($error); exit();'));
 
-$releaseVersion = '0.1.0';
+$releaseVersion = '0.1.1';
 $releaseStability = 'beta';
 $apiVersion = '0.1.0';
 $apiStability = 'beta';
-$notes = 'The first release of Stagehand_CLIController.';
+$notes = 'What\'s New in Stagehand_CLIController 0.1.1
+
+ A defect fix:
+
+  A defect has been fixed that caused "Strict Standards: Non-static method ..." errors to be raised if E_STRICT is enabled.';
 
 $package = new PEAR_PackageFileManager2();
 $package->setOptions(array('filelistgenerator' => 'file',

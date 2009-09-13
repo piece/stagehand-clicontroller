@@ -18,7 +18,7 @@
   <active>yes</active>
  </lead>
  <date>2009-09-13</date>
- <time>15:58:46</time>
+ <time>16:08:20</time>
  <version>
   <release>0.1.1</release>
   <api>0.1.0</api>
@@ -68,6 +68,11 @@ What&apos;s New in Stagehand_CLIController 0.1.1
     <name>Stagehand_Autoload</name>
     <channel>pear.piece-framework.com</channel>
     <min>0.3.0</min>
+   </package>
+   <package>
+    <name>Stagehand_LegacyError</name>
+    <channel>pear.piece-framework.com</channel>
+    <min>0.1.0</min>
    </package>
   </required>
  </dependencies>

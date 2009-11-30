@@ -154,7 +154,7 @@ abstract class Stagehand_CLIController
     protected function parseOptions()
     {
         Stagehand_LegacyError_PEARError::enableConversion();
-        $oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT);
+        $oldErrorReportingLevel = error_reporting(error_reporting() & ~E_STRICT & ~E_NOTICE);
         try {
             $argv = Console_Getopt::readPHPArgv();
             array_shift($argv);

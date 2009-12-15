@@ -40,15 +40,16 @@ require_once 'PEAR.php';
 
 PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, create_function('$error', 'var_dump($error); exit();'));
 
-$releaseVersion = '0.1.1';
+$packageName = 'Stagehand_CLIController';
+$releaseVersion = '0.1.2';
 $releaseStability = 'beta';
 $apiVersion = '0.1.0';
 $apiStability = 'beta';
-$notes = 'What\'s New in Stagehand_CLIController 0.1.1
+$notes = "What's New in $packageName $releaseVersion
 
  A defect fix:
 
-  A defect has been fixed that caused "Strict Standards: Non-static method ..." errors to be raised if E_STRICT is enabled.';
+  A defect has been fixed that caused a \"Notice: .../Console/Getopt.php line 123 - Uninitialized string offset: 0\" error to be raised when parsing the options.";
 
 $package = new PEAR_PackageFileManager2();
 $package->setOptions(array('filelistgenerator' => 'file',
@@ -62,7 +63,7 @@ $package->setOptions(array('filelistgenerator' => 'file',
                            'ignore'            => array('package.php'))
                      );
 
-$package->setPackage('Stagehand_CLIController');
+$package->setPackage($packageName);
 $package->setPackageType('php');
 $package->setSummary('A controller object for CLI');
 $package->setDescription('Stagehand_CLIController provides a controller superclass to run a typical control flow of CLI such like the following:

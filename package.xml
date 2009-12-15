@@ -17,10 +17,10 @@
   <email>kubo@iteman.jp</email>
   <active>yes</active>
  </lead>
- <date>2009-09-13</date>
- <time>16:08:20</time>
+ <date>2009-12-16</date>
+ <time>04:10:25</time>
  <version>
-  <release>0.1.1</release>
+  <release>0.1.2</release>
   <api>0.1.0</api>
  </version>
  <stability>
@@ -29,11 +29,11 @@
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
  <notes>
-What&apos;s New in Stagehand_CLIController 0.1.1
+What&apos;s New in Stagehand_CLIController 0.1.2
 
  A defect fix:
 
-  A defect has been fixed that caused &quot;Strict Standards: Non-static method ...&quot; errors to be raised if E_STRICT is enabled.
+  A defect has been fixed that caused a &quot;Notice: .../Console/Getopt.php line 123 - Uninitialized string offset: 0&quot; error to be raised when parsing the options.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -78,6 +78,25 @@ What&apos;s New in Stagehand_CLIController 0.1.1
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.1.2</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2009-12-16</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+What&apos;s New in Stagehand_CLIController 0.1.2
+
+ A defect fix:
+
+  A defect has been fixed that caused a &quot;Notice: .../Console/Getopt.php line 123 - Uninitialized string offset: 0&quot; error to be raised when parsing the options.
+   </notes>
+  </release>
   <release>
    <version>
     <release>0.1.1</release>

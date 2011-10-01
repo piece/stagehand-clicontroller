@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright (c) 2010 KUBO Atsuhiro <kubo@iteman.jp>,
+ Copyright (c) 2010-2011 KUBO Atsuhiro <kubo@iteman.jp>,
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -27,10 +27,15 @@
 <project name="Stagehand_CLIController" basedir="." default="build">
   <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2"/>
 
-  <property name="package.notes"><![CDATA[This is the first stable release of Stagehand_CLIController.
+  <property name="package.notes"><![CDATA[What's New in ${phing.project.name} ${package.releaseversion}
 
-The features of Stagehand_CLIController 1.0.0 is the same as Stagehand_CLIController 0.1.2 except the version number and the directory structure. As of this version, the sources are located directly under the "php_dir" (PEAR directory).]]></property>
-  <property name="package.releaseversion">1.0.0</property>
+A Defect Fix
+
+ The following defect has been fixed:
+
+ * A possible crash by "Strict Standards" (Issue #341)
+]]></property>
+  <property name="package.releaseversion">1.0.1</property>
   <property name="package.releasestability">stable</property>
   <property name="package.apiversion">0.1.0</property>
   <property name="package.apistability">stable</property>
@@ -87,7 +92,7 @@ The features of Stagehand_CLIController 1.0.0 is the same as Stagehand_CLIContro
       <dependencies>
         <package type="required" name="Console_Getopt" channel="pear.php.net" minimum_version="1.2"/>
         <package type="required" name="Stagehand_Autoload" channel="${package.channel}" minimum_version="0.3.0"/>
-        <package type="required" name="Stagehand_LegacyError" channel="${package.channel}" minimum_version="0.3.0"/>
+        <package type="required" name="Stagehand_LegacyError" channel="${package.channel}" minimum_version="1.0.2"/>
         <php minimum_version="${package.phpdep}"/>
         <pear minimum_version="${package.pearinstallerdep}"/>
       </dependencies>
